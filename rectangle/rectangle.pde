@@ -30,11 +30,12 @@ void setup()
   heightDiameterFace = smallerDimension;
   xLeftEye = xCenter-smallerDimension*1/4;
   yLeftEye = yCenter-smallerDimension*1/7;
-  xleftPupil = xLeftEye+smallerDimension*1/9;
-  yleftPupil = yLeftEye;
+  xleftPupil = xCenter-smallerDimension*1/9;
+  yleftPupil = yCenter-smallerDimension*1/9;
   xRightEye = xCenter+smallerDimension*1/4;
   yRightEye = yCenter-smallerDimension*1/7;
   eyeDiameter = smallerDimension*1/8;
+  PupilDiameter = smallerDimension*1/16;
   xNoseBridge = xCenter;
   yNoseBridge = yCenter-smallerDimension*1/8;
   xLeftNostril = xCenter-smallerDimension*1/8; 
