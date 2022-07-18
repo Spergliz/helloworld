@@ -30,10 +30,12 @@ void setup()
   heightDiameterFace = smallerDimension;
   xLeftEye = xCenter-smallerDimension*1/4;
   yLeftEye = yCenter-smallerDimension*1/7;
-  xleftPupil = xCenter-smallerDimension*1/9;
-  yleftPupil = yCenter-smallerDimension*1/9;
+  xleftPupil = xCenter-smallerDimension*1/4;
+  yleftPupil = yCenter-smallerDimension*1/7;
   xRightEye = xCenter+smallerDimension*1/4;
   yRightEye = yCenter-smallerDimension*1/7;
+  xrightPupil = xCenter+smallerDimension*1/4;
+  yrightPupil = yCenter+smallerDimension*1/7;
   eyeDiameter = smallerDimension*1/8;
   PupilDiameter = smallerDimension*1/16;
   xNoseBridge = xCenter;
@@ -60,13 +62,15 @@ void setup()
 void draw()
 {
   ellipse(xLeftEye, yLeftEye, eyeDiameter, eyeDiameter);
-  circle(xleftPupil, yleftPupil, PupilDiameter);
+  ellipse(xleftPupil, yleftPupil, PupilDiameter, PupilDiameter);
   ellipse(xRightEye, yRightEye, eyeDiameter, eyeDiameter);
+  ellipse(xrightPupil, yrightPupil, PupilDiameter, PupilDiameter);
   triangle(xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril);
   line(xLeftMouth, yLeftMouth, xRightMouth, yRightMouth);
   //
-  xMeasle = random(smallerDimension);
+  xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(smallerDimension);
+  ellipse(xCenter-faceRadius, 0,2*faceRadius,smallerDimension);
   fill(red);
   noStroke();
   measleDiameter =random(smallerDimension*1/50+smallerDimension*1/65);
