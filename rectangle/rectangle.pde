@@ -4,6 +4,7 @@ float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, xCenter, 
 float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeDiameter, xleftPupil, yleftPupil, xrightPupil, yrightPupil, PupilDiameter;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
+float imageX1, imageY1,ImageWidth1,imageHeight1,imagelargerdimension1,imageSmallerdimension1, imageWidthratio1=0.0,imageHeightRatio1=0.0;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, red=#FF0000;
 Boolean nightMode=true;
@@ -15,7 +16,7 @@ void setup()
   //CANVAS will will be added to later
   size(800, 600); //Landscape
   //
-  //Population
+  //population
   background (xFace);
   xCenter = width/2;
   float yCenter = height/2;
@@ -23,7 +24,15 @@ void setup()
   yFace = yCenter;
 pic1= loadImage("pic/realhat.png");
 int picWidth1=3000;
-int picHeight= 2830;
+int picHeight1= 2830;
+if (picWidth1 >= picHeight1){
+  imagelargerdimension1 = picWidth1;
+  imageSmallerdimension1= picHeight1
+  widthLarger1-true
+} else {
+  imagelargerdimension1 = picWidth1
+  imageSmallerdimension1= picHeight1;
+  heightLarger1= true
   if ( width >= height ) {
     smallerDimension = height;
   } else {
