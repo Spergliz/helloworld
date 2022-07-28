@@ -4,11 +4,11 @@ float xFace, yFace, widthDiameterFace, heightDiameterFace, faceRadius, xCenter, 
 float xLeftEye, yLeftEye, xRightEye, yRightEye, eyeDiameter, xleftPupil, yleftPupil, xrightPupil, yrightPupil, PupilDiameter;
 float xNoseBridge, yNoseBridge, xLeftNostril, yLeftNostril, xRightNostril, yRightNostril;
 float xLeftMouth, yLeftMouth, xRightMouth, yRightMouth;
-float imageX1, imageY1,ImageWidth1,imageHeight1,imagelargerdimension1,imageSmallerdimension1, imageWidthratio1=0.0,imageHeightRatio1=0.0;
+float imageX1, imageY1, ImageWidth1, imageHeight1, imagelargerdimension1, imageSmallerdimension1, imageWidthratio1=0.0, imageHeightRatio1=0.0;
 float xMeasle, yMeasle, measleDiameter;
 color resetWhite=#FFFFFF, red=#FF0000;
 Boolean nightMode=true;
-color backgroundColour;
+color backGroundColour;
 PImage pic1, pic2;
 //
 void setup()
@@ -22,17 +22,17 @@ void setup()
   float yCenter = height/2;
   xFace = xCenter;
   yFace = yCenter;
-pic1= loadImage("pic/realhat.png");
-int picWidth1=3000;
-int picHeight1= 2830;
-if (picWidth1 >= picHeight1){
-  imagelargerdimension1 = picWidth1;
-  imageSmallerdimension1= picHeight1
-  widthLarger1-true
-} else {
-  imagelargerdimension1 = picWidth1
-  imageSmallerdimension1= picHeight1;
-  heightLarger1= true
+  pic1= loadImage("pic/realhat.png");
+  int picWidth1=3000;
+  int picHeight1= 2830;
+  if (picWidth1 >= picHeight1) {
+    imagelargerdimension1 = picWidth1;
+    imageSmallerdimension1= picHeight1;
+  } else {  
+    imagelargerdimension1 = picWidth1;
+    imageSmallerdimension1= picHeight1;
+    heightLarger1= true;
+  }
   if ( width >= height ) {
     smallerDimension = height;
   } else {
@@ -63,14 +63,13 @@ if (picWidth1 >= picHeight1){
   faceRadius = smallerDimension/2+smallerDimension*1/16;
   measleDiameter = smallerDimension*1/50;
   //
+}
+backGroundColour = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ); //ternary operator, similar to IF-Else
+background( backGroundColour );
+ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
 
-  Boolean nightMode=true;
-  backgroundColour = ( nightMode==true ) ? color( random(255), random(255), 0 ) : color( random(255), random(255), random(255) ) ; //ternary operator, similar to IF-Else
-  background( backgroundColour );
-  ellipse(xFace, yFace, widthDiameterFace, heightDiameterFace);
-
-  //
-}//End setup
+//
+//End setup
 //
 void draw()
 
@@ -84,7 +83,7 @@ void draw()
   //
   xMeasle = random(xCenter-faceRadius, xCenter+faceRadius);
   yMeasle = random(smallerDimension);
-  rect(xCenter-faceRadius, 0,0.2*faceRadius, smallerDimension);
+  rect(xCenter-faceRadius, 0, 0.2*faceRadius, smallerDimension);
   fill(red);
   noStroke();
   measleDiameter =random(smallerDimension*1/50+smallerDimension*1/65);
@@ -93,8 +92,8 @@ void draw()
   fill(resetWhite);
 
   //if (xMeasle > faceRadius)fill(resetWhite);; does not work lol 
- // if (yMeasle > faceRadius) fill(resetWhite);
- // if (measleDiameter > faceRadius)fill(resetWhite);;
+  // if (yMeasle > faceRadius) fill(resetWhite);
+  // if (measleDiameter > faceRadius)fill(resetWhite);;
 }
 //
 //End draw
@@ -117,4 +116,5 @@ void mousePressed() {
   } else {
     nightMode = false;
   }//End mousePressed
-};
+  ;
+}
